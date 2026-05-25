@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babaservices – Création site web</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@900&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ── Velvet / satin background ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 20%, rgba(20,20,20,0.95) 0%, #000 70%),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,0.012) 0px,
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px,
+          transparent 6px
+        );
+    }
+    /* spotlight pools */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 55% 40% at 28% 55%, rgba(0,255,100,0.045) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 40% at 72% 45%, rgba(0,255,100,0.035) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 25% at 50%  5%, rgba(255,255,255,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Stage ── */
+    .stage {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      padding: 40px 20px;
+    }
+
+    /* ── Smoke wisps ── */
+    .smoke {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .smoke span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0;
+      animation: drift 14s infinite ease-in-out;
+    }
+    .smoke span:nth-child(1){ width:300px;height:200px;left:5%;top:60%; background:rgba(0,200,80,0.06); animation-delay:0s; }
+    .smoke span:nth-child(2){ width:250px;height:180px;left:70%;top:30%; background:rgba(0,200,80,0.05); animation-delay:4s; }
+    .smoke span:nth-child(3){ width:200px;height:160px;left:40%;top:75%; background:rgba(0,200,80,0.04); animation-delay:8s; }
+    @keyframes drift {
+      0%   { opacity:0; transform: translateY(0)   scale(1); }
+      30%  { opacity:1; }
+      70%  { opacity:0.6; }
+      100% { opacity:0; transform: translateY(-80px) scale(1.3); }
+    }
+
+    /* ══════════════════════════════════════════
+       SVG / clip-path letter blocks
+    ══════════════════════════════════════════ */
+    .letterblock {
+      display: block;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* Row 1 – BABASERVICES */
+    .row1 { font-size: clamp(72px, 12vw, 140px); }
+    /* Row 2 – CRÉATION */
+    .row2 { font-size: clamp(56px, 9vw, 108px); }
+    /* Row 3 – SITE WEB */
+    .row3 { font-size: clamp(56px, 9vw, 108px); }
+
+    /* ── Green glow text outline fill ── */
+    .letterblock text {
+      font-family: 'Bebas Neue', 'Impact', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      fill: none;
+      paint-order: stroke fill;
+    }
+
+    /* ── Separator line ── */
+    .sep {
+      width: 60%; max-width: 640px;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0,255,100,0.5) 30%,
+        rgba(0,255,100,0.9) 50%,
+        rgba(0,255,100,0.5) 70%,
+        transparent 100%
+      );
+      margin: 6px auto;
+      box-shadow: 0 0 8px rgba(0,255,100,0.6);
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(10px, 1.5vw, 15px);
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: rgba(0,255,100,0.65);
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 10px;
+      text-shadow: 0 0 12px rgba(0,255,100,0.4);
+    }
+  </style>
+</head>
+<body>
+
+<!-- smoke wisps -->
+<div class="smoke">
+  <span></span><span></span><span></span>
+</div>
+
+<div class="stage">
+
+  <!-- ═══════════ ROW 1 – BABASERVICES ═══════════ -->
+  <svg class="letterblock row1"
+       viewBox="0 0 1400 160"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       preserveAspectRatio="xMidYMid meet"
+       style="width:min(96vw,1200px);height:auto;overflow:visible;">
+    <defs>
+
+      <!-- ── Portrait fill patterns ── -->
+
+      <!-- Portrait A: warm close-up, natural afro, red-carnelian tones -->
+      <pattern id="portA" patternUnits="userSpaceOnUse" x="0" y="0" width="120" height="160">
+        <rect width="120" height="160" fill="#1a0a05"/>
+        <!-- skin warmth -->
+        <ellipse cx="60" cy="80" rx="44" ry="56" fill="#7a3b1e" opacity="0.9"/>
+        <!-- face highlight -->
+        <ellipse cx="60" cy="68" rx="26" ry="32" fill="#c0622a" opacity="0.7"/>
+        <!-- afro silhouette -->
+        <ellipse cx="60" cy="30" rx="42" ry="38" fill="#1a0e08" opacity="0.95"/>
+        <!-- ear accent -->
+        <ellipse cx="20" cy="75" rx="7" ry="10" fill="#b05020" opacity="0.6"/>
+        <ellipse cx="100" cy="75" rx="7" ry="10" fill="#b05020" opacity="0.6"/>
+        <!-- neckline / dress black -->
+        <rect x="20" y="128" width="80" height="32" rx="8" fill="#111" opacity="0.9"/>
+        <!-- necklace bead suggestion -->
+        <circle cx="60" cy="126" r="6" fill="#8B6914" opacity="0.85"/>
+        <circle cx="48" cy="124" r="5" fill="#8B2500" opacity="0.8"/>
+        <circle cx="72" cy="124" r="5" fill="#8B2500" opacity="0.8"/>
+        <!-- soft glow on face -->
+        <ellipse cx="58" cy="63" rx="12" ry="14" fill="#e8884a" opacity="0.3"/>
+        <!-- eyes suggestion -->
+        <ellipse cx="50" cy="66" rx="5" ry="3.5" fill="#2a1206" opacity="0.9"/>
+        <ellipse cx="70" cy="66" rx="5" ry="3.5" fill="#2a1206" opacity="0.9"/>
+        <!-- smile highlight -->
+        <ellipse cx="60" cy="88" rx="10" ry="5" fill="#e07050" opacity="0.5"/>
+      </pattern>
+
+      <!-- Portrait B: dramatic side lighting -->
+      <pattern id="portB" patternUnits="userSpaceOnUse" x="0" y="0" width="120" height="160">
+        <rect width="120" height="160" fill="#0d0905"/>
+        <ellipse cx="62" cy="82" rx="42" ry="54" fill="#6b3318" opacity="0.9"/>
+        <!-- side-lit cheek -->
+        <ellipse cx="85" cy="72" rx="22" ry="28" fill="#bf6030" opacity="0.65"/>
+        <!-- shadow side -->
+        <ellipse cx="36" cy="78" rx="18" ry="26" fill="#200e06" opacity="0.7"/>
+        <!-- afro -->
+        <ellipse cx="62" cy="28" rx="44" ry="36" fill="#0d0805" opacity="0.97"/>
+        <!-- hoop earring glow -->
+        <circle cx="108" cy="80" r="8" fill="none" stroke="#d4af37" stroke-width="2.5" opacity="0.7"/>
+        <!-- dress -->
+        <rect x="18" y="126" width="88" height="34" rx="8" fill="#0a0a0a" opacity="0.95"/>
+        <!-- necklace pendant -->
+        <polygon points="62,118 54,130 70,130" fill="#8B6914" opacity="0.85"/>
+        <circle cx="62" cy="116" r="5" fill="#8B6914" opacity="0.8"/>
+      </pattern>
+
+      <!-- Portrait C: editorial three-quarter, front spotlight -->
+      <pattern id="portC" patternUnits="userSpaceOnUse" x="0" y="0" width="120" height="160">
+        <rect width="120" height="160" fill="#100806"/>
+        <!-- body/shoulder -->
+        <ellipse cx="60" cy="130" rx="50" ry="35" fill="#0e0e0e" opacity="0.98"/>
+        <!-- skin -->
+        <ellipse cx="60" cy="75" rx="40" ry="52" fill="#7a3520" opacity="0.9"/>
+        <!-- spotlight on face -->
+        <radialGradient id="spC" cx="50%" cy="42%" r="50%">
+          <stop offset="0%" stop-color="#e07848" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <ellipse cx="60" cy="68" rx="38" ry="46" fill="url(#spC)"/>
+        <!-- afro -->
+        <ellipse cx="60" cy="26" rx="46" ry="40" fill="#0c0805" opacity="0.97"/>
+        <!-- necklace carnelian beads -->
+        <circle cx="44" cy="115" r="5" fill="#8B2500" opacity="0.85"/>
+        <circle cx="55" cy="118" r="6" fill="#8B2500" opacity="0.9"/>
+        <circle cx="66" cy="118" r="6" fill="#8B2500" opacity="0.9"/>
+        <circle cx="76" cy="115" r="5" fill="#8B2500" opacity="0.85"/>
+        <circle cx="60" cy="122" r="7" fill="#8B6914" opacity="0.85"/>
+      </pattern>
+
+      <!-- Portrait D: close crop, serene expression -->
+      <pattern id="portD" patternUnits="userSpaceOnUse" x="0" y="0" width="120" height="160">
+        <rect width="120" height="160" fill="#0e0906"/>
+        <ellipse cx="60" cy="90" rx="48" ry="70" fill="#7a3820" opacity="0.88"/>
+        <!-- forehead highlight -->
+        <ellipse cx="60" cy="52" rx="20" ry="18" fill="#c05a28" opacity="0.45"/>
+        <!-- cheek warmth -->
+        <ellipse cx="42" cy="80" rx="14" ry="16" fill="#d06030" opacity="0.3"/>
+        <ellipse cx="78" cy="80" rx="14" ry="16" fill="#d06030" opacity="0.3"/>
+        <!-- afro volume -->
+        <ellipse cx="60" cy="18" rx="50" ry="42" fill="#0b0805" opacity="0.97"/>
+        <!-- smile -->
+        <path d="M 46 94 Q 60 104 74 94" fill="none" stroke="#e08060" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+        <!-- earring gold hoop -->
+        <circle cx="14" cy="82" r="7" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.65"/>
+        <circle cx="106" cy="82" r="7" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.65"/>
+        <!-- dress neckline -->
+        <rect x="12" y="138" width="96" height="22" rx="6" fill="#090909" opacity="0.97"/>
+      </pattern>
+
+      <!-- Portrait E: luxury editorial, strong jaw, direct gaze -->
+      <pattern id="portE" patternUnits="userSpaceOnUse" x="0" y="0" width="120" height="160">
+        <rect width="120" height="160" fill="#0f0907"/>
+        <ellipse cx="60" cy="85" rx="44" ry="58" fill="#6e3118" opacity="0.9"/>
+        <!-- overhead rim light -->
+        <ellipse cx="60" cy="38" rx="30" ry="22" fill="#d06030" opacity="0.35"/>
+        <!-- jaw shadow -->
+        <ellipse cx="60" cy="112" rx="30" ry="16" fill="#2a1008" opacity="0.55"/>
+        <!-- afro full crown -->
+        <ellipse cx="60" cy="22" rx="48" ry="38" fill="#0c0804" opacity="0.98"/>
+        <!-- gold pendant -->
+        <path d="M 50,122 Q 60,132 70,122 Q 60,118 50,122 Z" fill="#8B6914" opacity="0.9"/>
+        <!-- beads -->
+        <circle cx="40" cy="118" r="4" fill="#8B2500" opacity="0.8"/>
+        <circle cx="80" cy="118" r="4" fill="#8B2500" opacity="0.8"/>
+        <!-- dress -->
+        <rect x="16" y="135" width="88" height="25" rx="5" fill="#080808" opacity="0.97"/>
+      </pattern>
+
+      <!-- ── Clip path – BABASERVICES text ── -->
+      <clipPath id="clipRow1">
+        <text x="700" y="145"
+              font-family="'Bebas Neue','Impact',sans-serif"
+              font-size="152"
+              font-weight="900"
+              letter-spacing="5"
+              text-anchor="middle"
+              dominant-baseline="auto">BABASERVICES</text>
+      </clipPath>
+
+      <!-- Green glow filter -->
+      <filter id="glow1" x="-8%" y="-8%" width="116%" height="116%">
+        <feGaussianBlur stdDeviation="3.5" result="blur"/>
+        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <feColorMatrix type="matrix"
+          values="0 0 0 0 0
+                  0 1 0 0 0.9
+                  0 0 0 0 0.25
+                  0 0 0 1 0" result="green"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="outerGlow1" x="-12%" y="-12%" width="124%" height="124%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="0 0 0 0 0
+                  0 1 0 0 1
+                  0 0 0 0 0.3
+                  0 0 0 1 0" result="gblur"/>
+        <feMerge><feMergeNode in="gblur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Fill letters with portrait mosaic -->
+    <g clip-path="url(#clipRow1)">
+      <!-- tile portraits across full width -->
+      <rect x="0"   y="0" width="280" height="160" fill="url(#portA)"/>
+      <rect x="280" y="0" width="280" height="160" fill="url(#portB)"/>
+      <rect x="560" y="0" width="280" height="160" fill="url(#portC)"/>
+      <rect x="840" y="0" width="280" height="160" fill="url(#portD)"/>
+      <rect x="1120" y="0" width="280" height="160" fill="url(#portE)"/>
+      <!-- subtle warm gradient overlay inside letters -->
+      <rect x="0" y="0" width="1400" height="160"
+            fill="url(#innerGradR1)" opacity="0.18"/>
+    </g>
+
+    <!-- Glowing green stroke outline -->
+    <text x="700" y="145"
+          font-family="'Bebas Neue','Impact',sans-serif"
+          font-size="152"
+          font-weight="900"
+          letter-spacing="5"
+          text-anchor="middle"
+          dominant-baseline="auto"
+          fill="none"
+          stroke="rgba(0,255,100,0.9)"
+          stroke-width="1.8"
+          filter="url(#outerGlow1)">BABASERVICES</text>
+  </svg>
+
+  <!-- separator -->
+  <div class="sep"></div>
+
+  <!-- ═══════════ ROW 2 – CRÉATION ═══════════ -->
+  <svg class="letterblock row2"
+       viewBox="0 0 1100 130"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       preserveAspectRatio="xMidYMid meet"
+       style="width:min(88vw,980px);height:auto;overflow:visible;">
+    <defs>
+
+      <!-- Portrait F: low-key dramatic -->
+      <pattern id="portF" patternUnits="userSpaceOnUse" x="0" y="0" width="140" height="130">
+        <rect width="140" height="130" fill="#0d0806"/>
+        <ellipse cx="70" cy="75" rx="50" ry="58" fill="#703018" opacity="0.9"/>
+        <ellipse cx="88" cy="58" rx="26" ry="30" fill="#bf5a28" opacity="0.55"/>
+        <ellipse cx="70" cy="20" rx="52" ry="34" fill="#0c0805" opacity="0.97"/>
+        <rect x="14" y="112" width="112" height="18" rx="5" fill="#080808" opacity="0.97"/>
+        <circle cx="56" cy="68" r="4" fill="#1a0a06" opacity="0.9"/>
+        <circle cx="84" cy="68" r="4" fill="#1a0a06" opacity="0.9"/>
+        <circle cx="112" cy="68" r="6" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.7"/>
+      </pattern>
+
+      <!-- Portrait G: editorial warmth -->
+      <pattern id="portG" patternUnits="userSpaceOnUse" x="0" y="0" width="140" height="130">
+        <rect width="140" height="130" fill="#100a06"/>
+        <ellipse cx="70" cy="78" rx="48" ry="56" fill="#7a3620" opacity="0.88"/>
+        <ellipse cx="70" cy="55" rx="28" ry="30" fill="#d06535" opacity="0.4"/>
+        <ellipse cx="70" cy="18" rx="52" ry="35" fill="#0b0804" opacity="0.97"/>
+        <path d="M 52 92 Q 70 102 88 92" fill="none" stroke="#e07855" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="26" cy="72" r="6" fill="none" stroke="#d4af37" stroke-width="2.2" opacity="0.7"/>
+        <circle cx="114" cy="72" r="6" fill="none" stroke="#d4af37" stroke-width="2.2" opacity="0.7"/>
+        <!-- carnelian necklace -->
+        <circle cx="52" cy="108" r="5" fill="#8B2500" opacity="0.85"/>
+        <circle cx="62" cy="111" r="5.5" fill="#8B2500" opacity="0.9"/>
+        <circle cx="70" cy="112" r="6" fill="#8B6914" opacity="0.85"/>
+        <circle cx="78" cy="111" r="5.5" fill="#8B2500" opacity="0.9"/>
+        <circle cx="88" cy="108" r="5" fill="#8B2500" opacity="0.85"/>
+      </pattern>
+
+      <clipPath id="clipRow2">
+        <text x="550" y="118"
+              font-family="'Bebas Neue','Impact',sans-serif"
+              font-size="122"
+              font-weight="900"
+              letter-spacing="4"
+              text-anchor="middle"
+              dominant-baseline="auto">CRÉATION</text>
+      </clipPath>
+
+      <filter id="outerGlow2" x="-12%" y="-12%" width="124%" height="124%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5.5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="0 0 0 0 0
+                  0 1 0 0 1
+                  0 0 0 0 0.3
+                  0 0 0 1 0"/>
+        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <g clip-path="url(#clipRow2)">
+      <rect x="0"   y="0" width="370" height="130" fill="url(#portG)"/>
+      <rect x="370" y="0" width="370" height="130" fill="url(#portF)"/>
+      <rect x="740" y="0" width="360" height="130" fill="url(#portG)"/>
+    </g>
+
+    <text x="550" y="118"
+          font-family="'Bebas Neue','Impact',sans-serif"
+          font-size="122"
+          font-weight="900"
+          letter-spacing="4"
+          text-anchor="middle"
+          dominant-baseline="auto"
+          fill="none"
+          stroke="rgba(0,255,100,0.88)"
+          stroke-width="1.6"
+          filter="url(#outerGlow2)">CRÉATION</text>
+  </svg>
+
+  <!-- ═══════════ ROW 3 – SITE WEB ═══════════ -->
+  <svg class="letterblock row3"
+       viewBox="0 0 1000 130"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       preserveAspectRatio="xMidYMid meet"
+       style="width:min(80vw,880px);height:auto;overflow:visible;">
+    <defs>
+      <!-- Portrait H -->
+      <pattern id="portH" patternUnits="userSpaceOnUse" x="0" y="0" width="150" height="130">
+        <rect width="150" height="130" fill="#0e0907"/>
+        <ellipse cx="75" cy="78" rx="52" ry="58" fill="#783220" opacity="0.9"/>
+        <!-- rim light top -->
+        <ellipse cx="75" cy="28" rx="36" ry="26" fill="#d06030" opacity="0.32"/>
+        <ellipse cx="75" cy="16" rx="56" ry="36" fill="#0b0804" opacity="0.97"/>
+        <!-- pendant glow -->
+        <path d="M 62,112 L 75,126 L 88,112 Z" fill="#8B6914" opacity="0.88"/>
+        <circle cx="75" cy="110" r="5" fill="#8B6914" opacity="0.8"/>
+        <circle cx="60" cy="107" r="4.5" fill="#8B2500" opacity="0.8"/>
+        <circle cx="90" cy="107" r="4.5" fill="#8B2500" opacity="0.8"/>
+        <rect x="15" y="125" width="120" height="5" fill="#080808" opacity="0.95"/>
+      </pattern>
+
+      <!-- Portrait I -->
+      <pattern id="portI" patternUnits="userSpaceOnUse" x="0" y="0" width="150" height="130">
+        <rect width="150" height="130" fill="#0d0806"/>
+        <ellipse cx="75" cy="80" rx="50" ry="56" fill="#6e2e18" opacity="0.9"/>
+        <!-- side light -->
+        <ellipse cx="100" cy="60" rx="28" ry="34" fill="#c05828" opacity="0.5"/>
+        <ellipse cx="50"  cy="68" rx="20" ry="28" fill="#220e08" opacity="0.6"/>
+        <ellipse cx="75" cy="18" rx="54" ry="36" fill="#0c0805" opacity="0.97"/>
+        <circle cx="20" cy="76" r="7" fill="none" stroke="#c8a22e" stroke-width="2.5" opacity="0.7"/>
+        <circle cx="130" cy="76" r="7" fill="none" stroke="#c8a22e" stroke-width="2.5" opacity="0.7"/>
+        <path d="M 55 96 Q 75 108 95 96" fill="none" stroke="#d87050" stroke-width="2.2" stroke-linecap="round" opacity="0.55"/>
+      </pattern>
+
+      <clipPath id="clipRow3">
+        <text x="500" y="118"
+              font-family="'Bebas Neue','Impact',sans-serif"
+              font-size="122"
+              font-weight="900"
+              letter-spacing="4"
+              text-anchor="middle"
+              dominant-baseline="auto">SITE WEB</text>
+      </clipPath>
+
+      <filter id="outerGlow3" x="-12%" y="-12%" width="124%" height="124%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5.5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="0 0 0 0 0
+                  0 1 0 0 1
+                  0 0 0 0 0.3
+                  0 0 0 1 0"/>
+        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <g clip-path="url(#clipRow3)">
+      <rect x="0"   y="0" width="340" height="130" fill="url(#portH)"/>
+      <rect x="340" y="0" width="340" height="130" fill="url(#portI)"/>
+      <rect x="680" y="0" width="320" height="130" fill="url(#portH)"/>
+    </g>
+
+    <text x="500" y="118"
+          font-family="'Bebas Neue','Impact',sans-serif"
+          font-size="122"
+          font-weight="900"
+          letter-spacing="4"
+          text-anchor="middle"
+          dominant-baseline="auto"
+          fill="none"
+          stroke="rgba(0,255,100,0.88)"
+          stroke-width="1.6"
+          filter="url(#outerGlow3)">SITE WEB</text>
+  </svg>
+
+  <!-- separator -->
+  <div class="sep" style="margin-top:8px;"></div>
+
+  <!-- tagline -->
+  <p class="tagline">Votre présence digitale &nbsp;·&nbsp; Élevée au rang d'art</p>
+
+</div><!-- /stage -->
+
+<!-- ── Canvas-based ambient particle effect ── -->
+<canvas id="particles" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
+
+<script>
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  function rand(a,b){ return a + Math.random()*(b-a); }
+  function init(){
+    pts = [];
+    for(let i=0; i<55; i++){
+      pts.push({
+        x: rand(0,W), y: rand(0,H),
+        r: rand(0.6,2.2),
+        vx: rand(-0.15,0.15),
+        vy: rand(-0.25,-0.05),
+        a: rand(0.1,0.55),
+        da: rand(-0.003,0.003)
+      });
+    }
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pts){
+      p.x += p.vx; p.y += p.vy; p.a += p.da;
+      if(p.a < 0.05) p.da =  Math.abs(p.da);
+      if(p.a > 0.6)  p.da = -Math.abs(p.da);
+      if(p.y < -4){ p.y = H+4; p.x = rand(0,W); }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(0,255,100,${p.a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  resize(); init(); tick();
+  window.addEventListener('resize', ()=>{ resize(); init(); });
+})();
+</script>
+</body>
+</html>
